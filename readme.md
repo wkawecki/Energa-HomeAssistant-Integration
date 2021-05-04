@@ -21,19 +21,15 @@ Skrypt bazuje na pozyskiwaniu danych bezpośrednio ze stron internetowych (ang. 
 ## Użycie
 ```
 usage: main.py [-h] -tm {1,2} -ms MQTT_SERVER [-mu MQTT_USERNAME]
-               [-mp MQTT_PASSWORD] -mt MQTT_TOPIC -eu ENERGA_USERNAME -ep
-               ENERGA_PASSWORD
+               [-mp MQTT_PASSWORD] -mt MQTT_TOPIC -eu [-mo MQTT_PORT] ENERGA_USERNAME -ep
+               ENERGA_PASSWORD 
 
-optional arguments:
-  -h, --help            show this help message and exit
+required arguments:
   -tm {1,2}, --type_of_meter {1,2}
                         Typ licznika: 1 dla jednokierunkowego, 2 dla
                         dwukierunkowego
   -ms MQTT_SERVER, --mqtt_server MQTT_SERVER
                         Serwer MQTT
-  -mu MQTT_USERNAME, --mqtt_username MQTT_USERNAME
-                        Uzytkownik MQTT
-  -mp MQTT_PASSWORD, --mqtt_password MQTT_PASSWORD
                         Haslo MQTT
   -mt MQTT_TOPIC, --mqtt_topic MQTT_TOPIC
                         Temat MQTT
@@ -41,7 +37,17 @@ optional arguments:
                         Login Energa S.A
   -ep ENERGA_PASSWORD, --energa_password ENERGA_PASSWORD
                         Haslo Energa S.A
-przykład: ./main.py -tm 1 -ms 192.168.19.129 -mt home/energa -eu email@gmail.com -ep haslo_energa -mu login_mqtt -mp hasło_mqtt
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -mu MQTT_USERNAME, --mqtt_username MQTT_USERNAME
+                        Uzytkownik MQTT
+  -mp MQTT_PASSWORD, --mqtt_password MQTT_PASSWORD
+                        Haslo MQTT
+  -mo MQTT_PORT, --mqtt_port MQTT_PORT
+                        Port MQTT
+
+przykład: ./main.py -tm 1 -ms 192.168.19.129 -mt home/energa -eu email@gmail.com -ep haslo_energa -mu login_mqtt -mp hasło_mqtt -mo 1883
 ```
 #### Wiadomość na serwerze MQTT po uruchomieniu skryptu:
 ![MQTT Screenshot](https://papuutekapt.github.io/assets/Energa-HomeAssistant-Integration/mqtt.png)

@@ -13,6 +13,7 @@ argsparser.add_argument("-ms","--mqtt_server", help="Serwer MQTT",required=True)
 argsparser.add_argument("-mu","--mqtt_username", help="Uzytkownik MQTT",required=False)
 argsparser.add_argument("-mp","--mqtt_password", help="Haslo MQTT",required=False)
 argsparser.add_argument("-mt","--mqtt_topic", help="Temat MQTT",required=True)
+argsparser.add_argument("-mo","--mqtt_port", help="Port MQTT",required=False)
 argsparser.add_argument("-eu","--energa_username", help="Login Energa S.A ",required=True)
 argsparser.add_argument("-ep","--energa_password", help="Haslo Energa S.A ",required=True)
 args = argsparser.parse_args()
@@ -27,6 +28,7 @@ clientId    = "energascript"
 username    = args.mqtt_username
 password    = args.mqtt_password
 topic       = args.mqtt_topic
+port        = args.mqtt_port
 print("Wait...")
 display = Display(visible=0, size=(800, 600))
 display.start()
@@ -36,8 +38,10 @@ driver.find_element_by_id("loginRadio").click()
 driver.find_element_by_id("j_username").send_keys(energa_username)
 driver.find_element_by_id ("j_password").send_keys(energa_password)
 driver.find_element_by_name("loginNow").click()
+print("Logged...")
 try:
     element_used = driver.find_element_by_id("right").find_elements_by_tag_name("tr")[0].find_element_by_class_name("last").text
+    print(element_used)
 except:
     print("PROBLEM Z POBRANIEM DANYCH Z ENERGA S.A - SPRAWDZ DANE LOGOWANIA")
     driver.quit()
@@ -65,13 +69,18 @@ def on_connect(client, userdata, flags, rc):
 client = mqtt.Client(clientId)
 if(username != None): client.username_pw_set(username, password)
 try:
-    client.connect(serverUrl)
+    if port != None : 
+        print("Connecting to MQTT " + serverUrl + ":" + port)
+        client.connect(serverUrl, int(port))
+    else: 
+        print("Connecting to MQTT " + serverUrl)
+        client.connect(serverUrl)
 except:
     print("BŁĄD MQTT - Sprawdz dane MQTT")
     exit()
 client.on_connect = on_connect
 client.loop_forever()
 
-
+print("Published")
 
 
