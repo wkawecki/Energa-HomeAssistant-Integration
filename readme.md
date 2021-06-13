@@ -111,8 +111,9 @@ W tym celu dodajemy wpis do cron'a:
 ```
 
 lub co 2 godziny od 6 do 22
+```
 0 6-22/2 * * * python3 /home/pi/Energa-script/main.py -tm 4 -ms 192.168.1.134 -mt home/energa -eu email@gmail.com -ep haslo_energa -mu login_mqtt -mp hasło_mqtt -mo 1883
-
+```
 Jeśli nie masz zainstalowanego crona, możesz to zrobić to komendą: `sudo apt install cron`
 ## Testowane na:
 * Raspbian 10 Buster na Raspberry PI 3B+,
@@ -120,5 +121,6 @@ Jeśli nie masz zainstalowanego crona, możesz to zrobić to komendą: `sudo apt
 * Debian 10.
 * Powinno działać na każdej dystrybucji bazującej na debianie.
 # Home Assistant - Energa S.A Integration [EN]
-Script allows to get data from polish energy distributor: Energa S.A
+Script allows to get data from polish energy distributor: Energa S.A 
+
 ![HA Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/master/ha.png?raw=true)
