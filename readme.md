@@ -1,6 +1,8 @@
 # Home Assistant - Integracja z Energa S.A [PL]
 Skrypt pozwala pobrać dane z licznika dostawcy Energa S.A oraz wysłać je na serwer MQTT. Dotyczy to zarówno licznika jednokierunkowego jak i dwukierunkowego (w taryfie G11 i G12W).
 
+![MojLicznik Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/master/licznik_G12W.png?raw=true)
+
 ![HA Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/master/ha.png?raw=true)
 ## Ograniczenia.
 Skrypt bazuje na pozyskiwaniu danych bezpośrednio ze stron internetowych (ang. Web scrapping), dlatego przy jakichkolwiek zmianach na stronie przez Energa S.A program może ulec awarii. Postaram się na bieżąco aktualizować to repetytorium.
