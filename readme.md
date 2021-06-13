@@ -1,6 +1,7 @@
 # Home Assistant - Integracja z Energa S.A [PL]
-Skrypt pozwala pobrać dane z licznika dostawcy Energa S.A oraz wysłać je na serwer MQTT. Dotyczy to zarówno licznika jednokierunkowego jak i dwukierunkowego.
-![HA Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/[branch]/ha.png?raw=true)
+Skrypt pozwala pobrać dane z licznika dostawcy Energa S.A oraz wysłać je na serwer MQTT. Dotyczy to zarówno licznika jednokierunkowego jak i dwukierunkowego (w taryfie G11 i G12W).
+
+![HA Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/master/ha.png?raw=true)
 ## Ograniczenia.
 Skrypt bazuje na pozyskiwaniu danych bezpośrednio ze stron internetowych (ang. Web scrapping), dlatego przy jakichkolwiek zmianach na stronie przez Energa S.A program może ulec awarii. Postaram się na bieżąco aktualizować to repetytorium.
 ## Instalacja
@@ -16,7 +17,7 @@ Skrypt bazuje na pozyskiwaniu danych bezpośrednio ze stron internetowych (ang. 
         * Dla RPI: `sudo apt install chromium-chromedriver`
         * Dla Debiana: `sudo apt install chromium-driver`
 4. Instalacja skryptu:
-    * `git clone https://github.com/PapuutekAPT/Energa-HomeAssistant-Integration.git Energa-script `
+    * `git clone https://github.com/wkawecki/Energa-HomeAssistant-Integration.git Energa-script `
     * `cd Energa-script && sudo chmod +x main.py`
 ## Użycie
 ```
@@ -110,8 +111,9 @@ W tym celu dodajemy wpis do cron'a:
 ```
 
 lub co 2 godziny od 6 do 22
+```
 0 6-22/2 * * * python3 /home/pi/Energa-script/main.py -tm 4 -ms 192.168.1.134 -mt home/energa -eu email@gmail.com -ep haslo_energa -mu login_mqtt -mp hasło_mqtt -mo 1883
-
+```
 Jeśli nie masz zainstalowanego crona, możesz to zrobić to komendą: `sudo apt install cron`
 ## Testowane na:
 * Raspbian 10 Buster na Raspberry PI 3B+,
@@ -119,5 +121,6 @@ Jeśli nie masz zainstalowanego crona, możesz to zrobić to komendą: `sudo apt
 * Debian 10.
 * Powinno działać na każdej dystrybucji bazującej na debianie.
 # Home Assistant - Energa S.A Integration [EN]
-Script allows to get data from polish energy distributor: Energa S.A
-![HA Screenshot](https://papuutekapt.github.io/assets/Energa-HomeAssistant-Integration/ha.png)
+Script allows to get data from polish energy distributor: Energa S.A 
+
+![HA Screenshot](https://github.com/wkawecki/Energa-HomeAssistant-Integration/blob/master/ha.png?raw=true)
