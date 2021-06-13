@@ -17,7 +17,7 @@ Skrypt bazuje na pozyskiwaniu danych bezpośrednio ze stron internetowych (ang. 
         * Dla RPI: `sudo apt install chromium-chromedriver`
         * Dla Debiana: `sudo apt install chromium-driver`
 4. Instalacja skryptu:
-    * `git clone https://github.com/PapuutekAPT/Energa-HomeAssistant-Integration.git Energa-script `
+    * `git clone https://github.com/wkawecki/Energa-HomeAssistant-Integration.git Energa-script `
     * `cd Energa-script && sudo chmod +x main.py`
 ## Użycie
 ```
